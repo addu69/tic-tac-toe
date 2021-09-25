@@ -1,14 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[48]:
-
-
 import random
-
-
-# In[49]:
-
 
 #choosing the pointer
 def inputPlayerLetter():
@@ -21,10 +14,6 @@ def inputPlayerLetter():
             letter = ['O','X']
     return letter
 
-
-# In[50]:
-
-
 #board is a string of pointers
 def drawBoard(board):
     print("   |   |")
@@ -35,21 +24,11 @@ def drawBoard(board):
     print(" " + board[7] + " | " + board[8] + " | " + board[9])
     print("   |   |")
 
-    
-
-
-# In[51]:
-
-
 def whoGoesFirst():
     if random.randint(0,1) == 0:
         return 'computer'
     else:
         return 'user'
-
-
-# In[52]:
-
 
 def playAgain():
     a = input("Do you want to play again?(y/n):").lower()
@@ -58,16 +37,8 @@ def playAgain():
     else:
         return False
 
-
-# In[53]:
-
-
 def makeMove(board,move,letter):
     board[move] = letter
-
-
-# In[54]:
-
 
 def isWinner(board,le):
     return ((board[1] == le and board[2] == le and board[3] == le) or
@@ -78,12 +49,6 @@ def isWinner(board,le):
             (board[3] == le and board[6] == le and board[9] == le) or
             (board[1] == le and board[5] == le and board[9] == le) or
             (board[3] == le and board[5] == le and board[7] == le))
-                
-    
-
-
-# In[55]:
-
 
 def getBoardCopy(board):
     dupeboard=[]
@@ -91,29 +56,14 @@ def getBoardCopy(board):
         dupeboard.append(i)
     return dupeboard
 
-
-        
-
-
-# In[56]:
-
-
 def isSpaceFree(board,move):
     return board[move] == " "
-
-
-# In[57]:
-
 
 def getPlayerMove(board):
     move = ' '
     while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board,int(move)):
         move = int(input("Whats your next move??(1/9)"))
     return move
-
-
-# In[58]:
-
 
 def chooseRandomMoveFromList(board,moveslist):
     possiblemoves = []
@@ -124,11 +74,6 @@ def chooseRandomMoveFromList(board,moveslist):
         return None
     else:
         return possiblemoves
-    
-
-
-# In[59]:
-
 
 def getComputerMove(board,computerLetter):
     if computerLetter == 'X':
@@ -157,13 +102,6 @@ def getComputerMove(board,computerLetter):
     
     return chooseRandomMove(board,[2,4,6,8])
 
-    
-        
-
-
-# In[60]:
-
-
 def isBoardFull(board):
     for i in range(1,10):
         if isSpaceFree(board,i):
@@ -171,19 +109,6 @@ def isBoardFull(board):
         else:
             return True
         
-        
-        
-
-
-# In[61]:
-
-
-print("WELCOME HEHHE AAO AAO")
-
-
-# In[62]:
-
-
 print("WELCOME HEHHE AAO AAO")
 while True:
     theBoard = [' ']*10
@@ -223,9 +148,7 @@ while True:
             if isBoardFull(theBoard):
                 drawBoard(theBoard)
                 print("tieaya")
-                gameIsPlaying = False
-            
-            
+                gameIsPlaying = False        
         
     if not playAgain():
         break
